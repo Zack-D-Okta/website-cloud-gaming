@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NebulaCloud Gaming - Play PC Games Anywhere</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-bolt"></i> Nebula<span>Cloud</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Subscription</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn-secondary">Login</button>
+                <button class="btn-primary">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Next-Gen Cloud Gaming</span>
+            <h1>Mainkan Game PC Spek Dewa <br>di Perangkat Apapun</h1>
+            <p>Streaming langsung game favoritmu tanpa download, tanpa install. Cukup koneksi internet dan langsung mainkan dengan performa RTX 4080.</p>
+            <div class="hero-cta">
+                <button class="btn-primary btn-large"><i class="fa-solid fa-play"></i> Mulai Main Sekarang</button>
+                <button class="btn-secondary btn-large">Lihat Paket</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Library Section -->
+    <section class="games-section">
+        <div class="section-header">
+            <h2>Katalog Game Cloud</h2>
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-icon-svg" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+                <input type="text" id="gameSearch" placeholder="Cari game favoritmu...">
+            </div>
+        </div>
+
+        <!-- Grid Game -->
+        <div class="games-grid" id="gamesGrid">
+            <!-- Game card akan dimuat secara dinamis -->
+        </div>
+
+        <!-- Observer Target untuk Infinite Scroll -->
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="spinner-small"></div>
+            <p>Memuat lebih banyak game...</p>
+        </div>
+    </section>
+
+    <!-- Modal Streaming (Gimmick) -->
+    <div class="stream-modal" id="streamModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="loading-screen">
+                <div class="spinner"></div>
+                <h3>Menghubungkan ke Server Cloud Rig...</h3>
+                <p id="loadingStatus">Mengoptimalkan Latensi (12ms)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

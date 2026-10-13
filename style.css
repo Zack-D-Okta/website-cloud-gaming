@@ -1,0 +1,356 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-dark: #0b0c10;
+    --bg-card: #1f2833;
+    --primary: #45f3ff;
+    --primary-hover: #00d2ff;
+    --text-white: #ffffff;
+    --text-gray: #c5c6c7;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(11, 12, 16, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(69, 243, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-play {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--text-gray);
+    margin-right: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-white);
+}
+
+/* Hero Section Baru dengan Background Foto */
+.hero {
+    height: 90vh; /* Sedikit lebih tinggi agar visual foto lebih puas */
+    position: relative; /* Dibutuhkan untuk posisi overlay */
+    
+    /* GANTI URL DI BAWAH INI DENGAN LINK FOTO/GAMBAR PILIHAN ANDA */
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg?t=1740478142'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opsi tambahan: Efek parallax keren saat di-scroll */
+    
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    margin-top: 60px;
+}
+
+/* Lapisan Gelap (Overlay) agar teks putih tetap kontras dan mudah dibaca */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(11, 12, 16, 0.4), #0b0c10); /* Gradasi gelap ke warna dasar web */
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2; /* Menaikkan posisi teks agar berada di atas lapisan overlay */
+}
+
+.badge {
+    background-color: rgba(69, 243, 255, 0.15);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--primary);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 16px;
+}
+
+/* Games Section */
+.games-section {
+    padding: 60px 8%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(69, 243, 255, 0.3);
+}
+
+/* Mengatur posisi dan warna ikon SVG di dalam search bar */
+.search-icon-svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray); /* Mengikuti variabel warna abu-abu bawaan */
+    pointer-events: none; /* Agar klik tembus langsung ke kolom input text */
+}
+
+
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 5px 20px rgba(69, 243, 255, 0.2);
+}
+
+.card-img {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.fps-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--primary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.card-body p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.btn-play {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.game-card:hover .btn-play {
+    background-color: var(--primary);
+    color: black;
+}
+
+/* Modal / Loading Game Screen */
+.stream-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 12, 16, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    text-align: center;
+    position: relative;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--text-gray);
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.loading-indicator p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.spinner-small {
+    width: 35px;
+    height: 35px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
